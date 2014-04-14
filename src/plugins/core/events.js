@@ -108,7 +108,7 @@ define([
          * Browsers without the Clipboard API (specifically `ClipboardEvent.clipboardData`)
          * will execute the second branch here.
          */
-        if (event.clipboardData) {
+        if (event.clipboardData && !navigator.userAgent.match(/Windows(.+)Firefox/)) {
           event.preventDefault();
 
           if (contains(event.clipboardData.types, 'text/html')) {
